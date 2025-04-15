@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Button } from "@/components/ui/button"
 import { 
   Card, 
@@ -21,6 +21,7 @@ interface Note {
 
 const NotesList: React.FC = () => {
   const [notes, setNotes] = useState<Note[]>([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     // Load notes from localStorage
@@ -35,6 +36,10 @@ const NotesList: React.FC = () => {
       month: 'short', 
       day: 'numeric' 
     })
+  }
+
+  const viewNote = (id: string) => {
+    navigate(`/notes/${id}`)
   }
 
   return (
@@ -69,7 +74,13 @@ const NotesList: React.FC = () => {
                 <p className="text-gray-600 line-clamp-3">{note.content}</p>
               </CardContent>
               <CardFooter className="border-t pt-4 flex justify-end">
-                <Button variant="outline" size="sm">View Note</Button>
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => viewNote(note.id)}
+                >
+                  View Note
+                </Button>
               </CardFooter>
             </Card>
           ))}

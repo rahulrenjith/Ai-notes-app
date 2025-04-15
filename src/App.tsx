@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Index from "./pages/Index"
 import NewNote from "./pages/notes/NewNote"
 import NotesList from "./pages/notes/NotesList"
+import NoteView from "./pages/notes/NoteView"
 import NotFound from "./pages/NotFound"
 
 const queryClient = new QueryClient()
@@ -21,6 +22,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/notes" element={<NotesList />} />
           <Route path="/notes/new" element={<NewNote />} />
+          <Route path="/notes/:id" element={<NoteView />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
