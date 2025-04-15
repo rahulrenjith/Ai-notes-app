@@ -13,14 +13,16 @@ const Index = () => {
           Your intelligent note-taking companion powered by artificial intelligence
         </p>
         <div className="flex justify-center gap-4">
-          <Link to="/notes/new">
+          <Link to="/notes">
             <Button variant="outline" className="bg-white hover:bg-gray-100">
+              My Notes
+            </Button>
+          </Link>
+          <Link to="/notes/new">
+            <Button variant="default" className="bg-purple-600 hover:bg-purple-700">
               Create New Note
             </Button>
           </Link>
-          <Button variant="default" className="bg-purple-600 hover:bg-purple-700">
-            Explore Features
-          </Button>
         </div>
       </div>
     </div>
